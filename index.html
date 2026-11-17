@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa Alba Estética</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: "Amandine";
+    src: url("assets/Amandine-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --sand-light: #E5D6BD;
+    --sand: #C8B59B;
+    --bronze: #9A7247;
+    --brown-dark: #4A3220;
+    --off-white: #F7F4EE;
+    --margin-left: clamp(36px, 12.5vw, 220px);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background: var(--off-white);
+    color: var(--brown-dark);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Header e Logo */
+  .site-header {
+    position: absolute;
+    top: 40px;
+    left: var(--margin-left);
+    z-index: 10;
+  }
+
+  .logo {
+    display: inline-flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--brown-dark);
+  }
+
+  .logo__brand {
+    font-family: "Amandine", serif;
+    font-size: 21px;
+    font-weight: 300;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    -webkit-text-stroke: 0.5px var(--brown-dark);
+  }
+
+  .logo__tagline {
+    font-family: "Poppins", sans-serif;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-top: 4px;
+  }
+
+  /* Headlines: Amandine Light com leve espessura refinada */
+  h1, h2 {
+    font-family: "Amandine", serif;
+    font-weight: 300;
+    color: var(--brown-dark);
+    -webkit-text-stroke: 0.65px var(--brown-dark);
+    letter-spacing: 0.01em;
+    line-height: 1.22;
+  }
+
+  .fold {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 24px 100px var(--margin-left);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .fold__content {
+    position: relative;
+    z-index: 2;
+    max-width: 580px;
+  }
+
+  /* ---------- Dobra 1 ---------- */
+  .hero {
+    background-color: var(--sand-light);
+    background-image: url("assets/hero.jpg");
+    background-position: 85% center;
+  }
+
+  /* Transição degradê suave no final da dobra 1 */
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 180px;
+    background: linear-gradient(
+      to bottom,
+      rgba(247, 244, 238, 0) 0%,
+      rgba(247, 244, 238, 0.45) 45%,
+      rgba(247, 244, 238, 0.9) 85%,
+      var(--off-white) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 2.7vw, 42px);
+    margin-bottom: 24px;
+    max-width: 540px;
+  }
+
+  .hero p {
+    font-size: clamp(14px, 1.05vw, 16px);
+    font-weight: 400;
+    line-height: 1.75;
+    max-width: 490px;
+    margin-bottom: 36px;
+    color: #553b27;
+  }
+
+  .btn {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--off-white);
+    background: var(--brown-dark);
+    padding: 18px 36px;
+    border-radius: 999px;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease, box-shadow 0.35s ease;
+    box-shadow: 0 4px 16px rgba(74, 50, 32, 0.12);
+    cursor: pointer;
+  }
+
+  /* Zoom leve no mouse em cima do botão */
+  .btn:hover {
+    background: var(--bronze);
+    transform: scale(1.05);
+    box-shadow: 0 10px 28px rgba(154, 114, 71, 0.32);
+  }
+
+  .btn:active {
+    transform: scale(0.99);
+  }
+
+  /* Flash de luz dourada da esquerda para a direita */
+  .btn::after {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -130%;
+    width: 55%;
+    height: 220%;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255, 235, 190, 0.1) 20%,
+      rgba(255, 225, 150, 0.55) 50%,
+      rgba(240, 195, 105, 0.75) 55%,
+      rgba(255, 235, 190, 0.3) 70%,
+      transparent 100%
+    );
+    transform: rotate(25deg);
+    pointer-events: none;
+    animation: btn-gold-flash 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes btn-gold-flash {
+    0%, 65% {
+      left: -130%;
+    }
+    85%, 100% {
+      left: 170%;
+    }
+  }
+
+  .btn:hover::after {
+    animation: btn-gold-flash-hover 0.75s ease-out;
+  }
+
+  @keyframes btn-gold-flash-hover {
+    0% {
+      left: -130%;
+    }
+    100% {
+      left: 170%;
+    }
+  }
+
+  @keyframes heroFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ---------- Dobra 2 ---------- */
+  .problem {
+    background-color: var(--off-white);
+    background-image: url("assets/clinica.jpg");
+    background-position: right center;
+  }
+
+  /* Transição degradê suave no topo da dobra 2 */
+  .problem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 180px;
+    background: linear-gradient(
+      to bottom,
+      var(--off-white) 0%,
+      rgba(247, 244, 238, 0.9) 15%,
+      rgba(247, 244, 238, 0.45) 55%,
+      rgba(247, 244, 238, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .problem .fold__content {
+    max-width: 500px;
+  }
+
+  .problem h2 {
+    font-size: clamp(24px, 2.3vw, 36px);
+    margin-bottom: 24px;
+    max-width: 500px;
+  }
+
+  .problem p {
+    font-size: clamp(14px, 1.02vw, 16px);
+    font-weight: 400;
+    line-height: 1.8;
+    max-width: 495px;
+    color: #553b27;
+  }
+
+  .problem p + p {
+    margin-top: 18px;
+  }
+
+  .desktop-br {
+    display: inline;
+  }
+  .mobile-br {
+    display: none;
+  }
+
+  /* Faixa Ticker entre Dobra 3 e 4 */
+  .stats-marquee {
+    background: var(--brown-dark);
+    color: var(--sand-light);
+    padding: 16px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 3;
+    border-top: 1px solid rgba(200, 181, 155, 0.25);
+    border-bottom: 1px solid rgba(200, 181, 155, 0.25);
+  }
+  .stats-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 24s linear infinite;
+  }
+  .stats-marquee__group {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 2.5vw, 32px);
+    padding-right: clamp(16px, 2.5vw, 32px);
+    font-size: clamp(11px, 0.95vw, 13px);
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .stats-marquee__group .dot {
+    color: var(--bronze);
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ---------- Dobra 3: Mapa de Cuidado ---------- */
+  .section {
+    position: relative;
+    padding: 120px 24px;
+    text-align: center;
+  }
+
+  .map { background: var(--off-white); }
+
+  .section h2 {
+    font-size: clamp(26px, 2.6vw, 40px);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .map__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(28px, 4vw, 64px);
+    max-width: 1100px;
+    margin: 72px auto 0;
+  }
+
+  /* Fade in e Revelação por rolagem (Scroll Reveal) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.15s; }
+  .reveal-delay-2 { transition-delay: 0.3s; }
+  .reveal-delay-3 { transition-delay: 0.45s; }
+
+  /* Quadrados das fases com zoom leve */
+  .phase__img-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--sand-light);
+    margin-bottom: 28px;
+    box-shadow: 0 4px 16px rgba(74, 50, 32, 0.06);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  }
+
+  .phase__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Zoom leve quando colocar mouse em cima dos quadrados */
+  .phase:hover .phase__img,
+  .phase__img-wrap:hover .phase__img {
+    transform: scale(1.06);
+  }
+
+  .phase:hover .phase__img-wrap,
+  .phase__img-wrap:hover {
+    box-shadow: 0 12px 30px rgba(74, 50, 32, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .phase h3 {
+    font-family: "Amandine", serif;
+    font-weight: 300;
+    font-size: clamp(20px, 1.7vw, 26px);
+    line-height: 1.25;
+    -webkit-text-stroke: 0.5px var(--brown-dark);
+    margin-bottom: 14px;
+  }
+
+  .phase h3 span { color: var(--bronze); -webkit-text-stroke-color: var(--bronze); }
+
+  /* Texto com digitação rápida */
+  .phase__desc {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #553b27;
+    max-width: 300px;
+    margin: 0 auto;
+    min-height: 85px; /* espaço preservado para evitar saltos */
+  }
+
+  .phase__desc.is-typing::after {
+    content: "|";
+    color: var(--bronze);
+    font-weight: 300;
+    margin-left: 2px;
+    animation: cursor-blink 0.5s infinite;
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .map__closing {
+    max-width: 640px;
+    margin: 72px auto 0;
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.75;
+    font-weight: 500;
+    color: var(--brown-dark);
+  }
+
+  /* ---------- Dobra 4: Prova social ---------- */
+  .proof {
+    background: var(--sand-light);
+    padding-bottom: 130px;
+    overflow: hidden;
+  }
+
+  .proof__note {
+    max-width: 640px;
+    margin: 28px auto 0;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #553b27;
+  }
+
+  .carousel {
+    margin-top: 72px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .carousel__track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: scroll-left 55s linear infinite;
+  }
+  .carousel:hover .carousel__track { animation-play-state: paused; }
+
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-50% - 12px)); }
+  }
+
+  .testimonial {
+    flex: 0 0 auto;
+    width: 310px;
+    background: var(--off-white);
+    border-radius: 8px;
+    padding: 26px 22px;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(74, 50, 32, 0.06);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial blockquote {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #553b27;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .testimonial__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .testimonial__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--sand);
+    color: var(--off-white);
+    display: grid;
+    place-items: center;
+    font-family: "Amandine", serif;
+    font-size: 16px;
+  }
+
+  .testimonial__name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brown-dark);
+  }
+  .testimonial__age {
+    font-size: 12px;
+    color: var(--bronze);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__track, .stats-marquee__track { animation: none; }
+    .carousel, .stats-marquee { overflow-x: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .hero h1, .hero p, .hero .btn { animation: none !important; opacity: 1 !important; transform: none !important; }
+    .btn::after { animation: none !important; }
+    .phase:hover .phase__img { transform: none !important; }
+  }
+
+  /* ---------- Dobra 5: FAQ ---------- */
+  .faq { background: var(--off-white); }
+
+  .faq__list {
+    max-width: 780px;
+    margin: 64px auto 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .faq__item {
+    background: rgba(229, 214, 189, 0.38);
+    border: 1px solid rgba(200, 181, 155, 0.45);
+    border-radius: 8px;
+    transition: background .3s ease;
+  }
+  .faq__item.is-open { background: rgba(229, 214, 189, 0.6); }
+
+  .faq__question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 26px 30px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(15px, 1.2vw, 17px);
+    font-weight: 500;
+    color: var(--brown-dark);
+  }
+
+  .faq__icon {
+    position: relative;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+  }
+  .faq__icon::before,
+  .faq__icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: var(--bronze);
+    transition: transform .3s ease;
+  }
+  .faq__icon::after { transform: rotate(90deg); }
+  .faq__item.is-open .faq__icon::after { transform: rotate(0deg); }
+
+  .faq__answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .35s ease;
+  }
+  .faq__item.is-open .faq__answer { grid-template-rows: 1fr; }
+  .faq__answer > div { overflow: hidden; }
+  .faq__answer p {
+    padding: 0 30px 28px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #553b27;
+    max-width: 640px;
+  }
+
+  /* ---------- Dobra 6: Agendamento ---------- */
+  .cta {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    min-height: clamp(420px, 42vw, 560px);
+    background: var(--sand-light);
+    overflow: hidden;
+  }
+
+  .cta__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .cta__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    display: block;
+  }
+
+  .cta__content {
+    position: relative;
+    z-index: 1;
+    grid-column: 2;
+    padding: 70px clamp(28px, 8vw, 120px) 70px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .cta h2 {
+    font-size: clamp(26px, 2.6vw, 40px);
+    max-width: 480px;
+    margin-bottom: 22px;
+  }
+
+  .cta p {
+    font-size: clamp(14px, 1.05vw, 16px);
+    line-height: 1.75;
+    color: #553b27;
+    max-width: 440px;
+    margin-bottom: 36px;
+  }
+
+  /* ---------- Rodapé (baixo / compacto) ---------- */
+  .footer {
+    background: var(--brown-dark);
+    color: var(--off-white);
+    text-align: center;
+    padding: 28px 24px 22px;
+  }
+  .footer__brand {
+    font-family: "Amandine", serif;
+    font-size: 19px;
+    letter-spacing: 0.16em;
+    -webkit-text-stroke: 0.4px var(--off-white);
+    line-height: 1.1;
+  }
+  .footer__tagline {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(247, 244, 238, 0.75);
+  }
+  .footer__meta {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(247, 244, 238, 0.12);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px 14px;
+    font-size: 11px;
+    color: rgba(247, 244, 238, 0.55);
+  }
+  .footer__meta a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .2s ease;
+  }
+  .footer__meta a:hover { color: var(--sand-light); }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 820px) {
+    .desktop-br {
+      display: none;
+    }
+    .mobile-br {
+      display: inline;
+    }
+    .site-header {
+      top: 18px;
+      left: 20px;
+    }
+    .logo__brand {
+      font-size: 16px;
+      letter-spacing: 0.14em;
+      -webkit-text-stroke: 0.4px var(--brown-dark);
+    }
+    .logo__tagline {
+      font-size: 6.5px;
+      letter-spacing: 0.24em;
+      margin-top: 3px;
+    }
+    .fold {
+      min-height: 100svh;
+      padding: 390px 24px 60px;
+    }
+
+    /* Dobra 1 Mobile */
+    .hero {
+      background-image: url("assets/hero-mobile.jpg");
+      background-position: 68% top; /* mulher deslocada suavemente para a esquerda */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: #d5bca5;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      padding: 380px 28px 56px;
+    }
+    .hero .fold__content {
+      max-width: 310px;
+      padding: 0;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(19px, 5vw, 23px);
+      line-height: 1.25;
+      margin: 0 auto 14px;
+      max-width: 290px;
+      text-align: center;
+    }
+    .hero p {
+      font-size: 12px;
+      line-height: 1.6;
+      margin: 0 auto 22px;
+      max-width: 275px;
+      text-align: center;
+    }
+    .hero .btn {
+      margin: 0 auto;
+      padding: 15px 28px;
+      font-size: 11px;
+    }
+
+    /* Dobra 2 Mobile */
+    .problem {
+      background-image: url("assets/clinica-mobile.jpg");
+      background-position: top center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: #e5d3c2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .problem .fold__content {
+      max-width: 340px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+      text-align: left;
+    }
+    .problem h2 {
+      font-size: clamp(19px, 5vw, 23px);
+      margin-bottom: 16px;
+      text-align: left;
+      max-width: 100%;
+    }
+    .problem p {
+      font-size: 11px; /* diminuído 5px */
+      line-height: 1.65;
+      max-width: 100%;
+      text-align: left;
+    }
+    .problem p + p {
+      margin-top: 12px;
+    }
+
+    /* Dobra 3 Mobile */
+    .section { padding: 72px 24px; }
+    .map h2 { font-size: clamp(22px, 5.8vw, 28px); }
+    .map__grid { grid-template-columns: 1fr; margin-top: 40px; gap: 38px; }
+    .phase__img-wrap { max-width: 260px; margin-left: auto; margin-right: auto; margin-bottom: 22px; }
+    .phase__desc { font-size: 13.5px; line-height: 1.65; max-width: 280px; min-height: 80px; }
+    .map__closing { margin-top: 38px; font-size: 14px; }
+
+    /* Dobra 4 Mobile */
+    .proof { padding-bottom: 72px; }
+    .proof h2 { font-size: clamp(22px, 5.8vw, 27px); }
+    .carousel { margin-top: 38px; }
+    .testimonial {
+      width: 235px;
+      padding: 18px 16px;
+      border-radius: 6px;
+    }
+    .testimonial blockquote {
+      font-size: 11.5px;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .testimonial__avatar {
+      width: 30px;
+      height: 30px;
+      font-size: 13px;
+    }
+    .testimonial__name {
+      font-size: 11.5px;
+    }
+    .testimonial__age {
+      font-size: 10.5px;
+    }
+
+    /* Dobra 5 (FAQ) Mobile */
+    .faq h2 {
+      font-size: clamp(19px, 5.2vw, 23px);
+      line-height: 1.28;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    .faq__list { margin-top: 36px; gap: 12px; }
+    .faq__question {
+      min-height: 74px; /* todos os quadrados com a mesma altura */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      font-size: 14.5px;
+      box-sizing: border-box;
+    }
+    .faq__answer p { padding: 0 18px 20px; font-size: 13.5px; }
+
+    /* Dobra 6 (CTA) Mobile */
+    .cta {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      min-height: 100svh;
+      background-image: url("assets/cta-mobile.jpg");
+      background-position: top center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-color: #dec2a8;
+      padding: 390px 24px 60px;
+    }
+    .cta__media {
+      display: none;
+    }
+    .cta__content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .cta h2 {
+      font-size: clamp(22px, 5.8vw, 28px);
+      margin: 0 auto 16px;
+      text-align: center;
+      max-width: 360px;
+    }
+    .cta p {
+      font-size: 13.5px;
+      line-height: 1.65;
+      margin: 0 auto 28px;
+      max-width: 330px;
+      text-align: center;
+    }
+    .cta .btn {
+      margin: 0 auto;
+    }
+
+    /* Rodapé Mobile */
+    .footer {
+      padding: 18px 16px 14px;
+    }
+    .footer__brand {
+      font-size: 14px;
+      letter-spacing: 0.14em;
+    }
+    .footer__tagline {
+      font-size: 10px;
+      margin-top: 3px;
+      line-height: 1.35;
+      color: rgba(247, 244, 238, 0.7);
+    }
+    .footer__meta {
+      margin-top: 10px;
+      padding-top: 8px;
+      font-size: 9px;
+      gap: 3px 6px;
+      color: rgba(247, 244, 238, 0.5);
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header com Logo simples -->
+  <header class="site-header">
+    <a href="#" class="logo">
+      <span class="logo__brand">CASA ALBA</span>
+      <span class="logo__tagline">ESTÉTICA INTEGRADA</span>
+    </a>
+  </header>
+
+  <!-- Dobra 1 -->
+  <section class="fold hero">
+    <div class="fold__content">
+      <h1 class="reveal">Um cuidado pensado para você, do primeiro passo à manutenção.</h1>
+      <p class="reveal reveal-delay-1">Avaliação personalizada para rosto, corpo ou depilação. Você sai sabendo o que cuidar, em que ordem e quanto tempo leva, antes de decidir qualquer sessão.</p>
+      <a href="#agendar" class="btn reveal reveal-delay-2">Agendar minha avaliação</a>
+    </div>
+  </section>
+
+  <!-- Dobra 2 -->
+  <section class="fold problem">
+    <div class="fold__content">
+      <h2 class="reveal">Sessão avulsa resolve o dia.<br>Não resolve o caminho.</h2>
+      <p class="reveal reveal-delay-1">Você já fez um tratamento, gostou, e depois não soube<br class="desktop-br">o que vinha em seguida. Ou começou um pacote longo sem entender o porquê e desistiu no meio. Ou já fez em<br class="desktop-br">outro lugar e saiu sem saber o que esperar.</p>
+      <p class="reveal reveal-delay-2">Não é falta de disciplina. Faltou um plano que explicasse<br class="desktop-br">cada etapa, com clareza, antes de você se comprometer.</p>
+    </div>
+  </section>
+
+  <!-- Dobra 3 -->
+  <section class="section map">
+    <h2 class="reveal">O Mapa de Cuidado:<br class="mobile-br"> seu plano em três fases</h2>
+
+    <div class="map__grid">
+      <article class="phase reveal reveal-delay-1">
+        <div class="phase__img-wrap">
+          <img class="phase__img" src="assets/fase1.jpg" alt="Avaliação e conversa sobre objetivos">
+        </div>
+        <h3><span>1 ·</span> Avaliação e objetivos</h3>
+        <p class="phase__desc" data-typewriter="Conversamos sobre o que você quer, o que é indicado para o seu caso e o que não é. Nenhum tratamento é vendido antes dessa etapa.">Conversamos sobre o que você quer, o que é indicado para o seu caso e o que não é. Nenhum tratamento é vendido antes dessa etapa.</p>
+      </article>
+      <article class="phase reveal reveal-delay-2">
+        <div class="phase__img-wrap">
+          <img class="phase__img" src="assets/fase2.jpg" alt="Protocolo de cuidado em etapas">
+        </div>
+        <h3><span>2 ·</span> Protocolo em etapas</h3>
+        <p class="phase__desc" data-typewriter="Sessões combinadas, com o tempo de cada uma e o que acontece em cada fase. Você sabe o que vem depois.">Sessões combinadas, com o tempo de cada uma e o que acontece em cada fase. Você sabe o que vem depois.</p>
+      </article>
+      <article class="phase reveal reveal-delay-3">
+        <div class="phase__img-wrap">
+          <img class="phase__img" src="assets/fase3.jpg" alt="Acompanhamento mensal do cuidado">
+        </div>
+        <h3><span>3 ·</span> Acompanhamento mensal</h3>
+        <p class="phase__desc" data-typewriter="Ajustes ao longo do caminho e manutenção mensal, para o cuidado continuar sem surpresa.">Ajustes ao longo do caminho e manutenção mensal, para o cuidado continuar sem surpresa.</p>
+      </article>
+    </div>
+
+    <p class="map__closing reveal">Você decide com a informação completa, não por impulso nem pela promoção do mês.</p>
+  </section>
+
+  <!-- Faixa em Looping Infinito entre Dobra 3 e Dobra 4 -->
+  <div class="stats-marquee" aria-label="Estatísticas da Casa Alba">
+    <div class="stats-marquee__track">
+      <div class="stats-marquee__group">
+        <span>8 ANOS DE ATUAÇÃO</span>
+        <span class="dot">·</span>
+        <span>CERCA DE 1.900 CLIENTES ATENDIDAS</span>
+        <span class="dot">·</span>
+        <span>NOTA 4,9 NO GOOGLE</span>
+        <span class="dot">·</span>
+      </div>
+      <div class="stats-marquee__group" aria-hidden="true">
+        <span>8 ANOS DE ATUAÇÃO</span>
+        <span class="dot">·</span>
+        <span>CERCA DE 1.900 CLIENTES ATENDIDAS</span>
+        <span class="dot">·</span>
+        <span>NOTA 4,9 NO GOOGLE</span>
+        <span class="dot">·</span>
+      </div>
+      <div class="stats-marquee__group" aria-hidden="true">
+        <span>8 ANOS DE ATUAÇÃO</span>
+        <span class="dot">·</span>
+        <span>CERCA DE 1.900 CLIENTES ATENDIDAS</span>
+        <span class="dot">·</span>
+        <span>NOTA 4,9 NO GOOGLE</span>
+        <span class="dot">·</span>
+      </div>
+      <div class="stats-marquee__group" aria-hidden="true">
+        <span>8 ANOS DE ATUAÇÃO</span>
+        <span class="dot">·</span>
+        <span>CERCA DE 1.900 CLIENTES ATENDIDAS</span>
+        <span class="dot">·</span>
+        <span>NOTA 4,9 NO GOOGLE</span>
+        <span class="dot">·</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dobra 4 -->
+  <section class="section proof">
+    <h2 class="reveal">Oito anos cuidando de cada cliente pelo nome</h2>
+
+    <p class="proof__note reveal reveal-delay-1">Equipamentos regularizados, higienização em cada atendimento e procedimentos de saúde realizados por profissional habilitado, com registro.</p>
+
+    <div class="carousel reveal reveal-delay-2" aria-label="Depoimentos de clientes">
+      <div class="carousel__track" id="track">
+        <figure class="testimonial">
+          <blockquote>“Adorei o atendimento! A profissional ouviu minhas preocupações e explicou cada etapa do tratamento. Me senti muito segura desde a primeira avaliação.”</blockquote>
+          <figcaption class="testimonial__author"><span class="testimonial__avatar">M</span><span><span class="testimonial__name">Mariana Ribeiro</span><br><span class="testimonial__age">38 anos</span></span></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote>“Já tinha feito tratamentos em outras clínicas, mas nunca recebi uma orientação tão personalizada. Aqui, finalmente entendi o que minha pele precisava.”</blockquote>
+          <figcaption class="testimonial__author"><span class="testimonial__avatar">P</span><span><span class="testimonial__name">Patrícia Almeida</span><br><span class="testimonial__age">45 anos</span></span></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote>“O que mais gostei foi a transparência. Em nenhum momento me senti pressionada a contratar um procedimento. Tudo foi explicado com muita atenção.”</blockquote>
+          <figcaption class="testimonial__author"><span class="testimonial__avatar">R</span><span><span class="testimonial__name">Renata Carvalho</span><br><span class="testimonial__age">42 anos</span></span></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote>“Além do ambiente ser maravilhoso, o cuidado das profissionais faz toda a diferença. Hoje tenho uma rotina de cuidados que realmente faz sentido para mim.”</blockquote>
+          <figcaption class="testimonial__author"><span class="testimonial__avatar">C</span><span><span class="testimonial__name">Cláudia Martins</span><br><span class="testimonial__age">53 anos</span></span></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote>“Estava insegura por nunca ter feito tratamentos estéticos. Fui recebida com tanto carinho e paciência que todas as minhas preocupações passaram.”</blockquote>
+          <figcaption class="testimonial__author"><span class="testimonial__avatar">H</span><span><span class="testimonial__name">Helena Costa</span><br><span class="testimonial__age">61 anos</span></span></figcaption>
+        </figure>
+        <figure class="testimonial">
+          <blockquote>“O acompanhamento é um grande diferencial. Saber o que esperar de cada etapa do tratamento me deixou muito mais tranquila e confiante.”</blockquote>
+          <figcaption class="testimonial__author"><span class="testimonial__avatar">S</span><span><span class="testimonial__name">Sandra Oliveira</span><br><span class="testimonial__age">57 anos</span></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dobra 5 -->
+  <section class="section faq">
+    <h2 class="reveal">Sua primeira conversa é com uma profissional, não com uma tabela<br>de preços.</h2>
+
+    <div class="faq__list reveal reveal-delay-1">
+      <div class="faq__item is-open">
+        <button class="faq__question" aria-expanded="true">Vai doer?<span class="faq__icon"></span></button>
+        <div class="faq__answer"><div><p>Você conversa com a profissional antes e entende o que vai sentir. Se algo não for confortável para você, a gente ajusta o protocolo.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">Está caro?<span class="faq__icon"></span></button>
+        <div class="faq__answer"><div><p>O valor depende do seu caso e é apresentado na avaliação, com as etapas e o tempo de cada uma.</p></div></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">Não sei qual tratamento serve para mim.<span class="faq__icon"></span></button>
+        <div class="faq__answer"><div><p>Essa é justamente a pergunta da avaliação.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dobra 6 -->
+  <section class="cta" id="agendar">
+    <div class="cta__media">
+      <img src="assets/cta.jpg" alt="Mulher com pele iluminada pela luz do sol">
+    </div>
+    <div class="cta__content reveal">
+      <h2>Escolha seu objetivo e agende sua avaliação.</h2>
+      <p>Você recebe a confirmação pelo WhatsApp e um lembrete antes do horário.</p>
+      <a href="#agendar" class="btn">Agendar minha avaliação</a>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer__brand">CASA ALBA ESTÉTICA</div>
+    <p class="footer__tagline">Cuidado personalizado, beleza e bem-estar em cada etapa.</p>
+    <div class="footer__meta">
+      <span>© 2026 Casa Alba Estética. Todos os direitos reservados.</span>
+      <span>·</span>
+      <span><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ em sanfona
+    document.querySelectorAll('.faq__question').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.parentElement;
+        var open = item.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+
+    // Duplica os depoimentos para o loop infinito (-50% da trilha)
+    (function () {
+      var track = document.getElementById('track');
+      Array.prototype.slice.call(track.children).forEach(function (card) {
+        var clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      });
+    })();
+
+    // Revelação por rolagem (Scroll Reveal nos dois sentidos: descendo e subindo)
+    (function () {
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+            } else {
+              // Ao subir ou descer o scroll e sair do campo de visão, remove para reaparecer quando voltar!
+              entry.target.classList.remove('is-visible');
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          revealObserver.observe(el);
+        });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          el.classList.add('is-visible');
+        });
+      }
+    })();
+
+    // Efeito de digitação DEVAGAR simultânea nos 3 textos da Dobra 3
+    (function () {
+      var mapSection = document.querySelector('.map');
+      if (!mapSection) return;
+
+      var typingTimers = [];
+
+      function startSimultaneousTypewriter() {
+        // Cancela qualquer timer ativo
+        typingTimers.forEach(function (t) { clearInterval(t); });
+        typingTimers = [];
+
+        var descs = document.querySelectorAll('.phase__desc');
+        descs.forEach(function (p) {
+          var fullText = p.getAttribute('data-typewriter') || p.textContent.trim();
+          p.textContent = '';
+          p.classList.add('is-typing');
+          var idx = 0;
+          var speed = 42; // Digitação DEVAGAR (~42ms por caractere)
+          var timer = setInterval(function () {
+            if (idx < fullText.length) {
+              p.textContent += fullText.charAt(idx);
+              idx++;
+            } else {
+              clearInterval(timer);
+              p.classList.remove('is-typing');
+            }
+          }, speed);
+          typingTimers.push(timer);
+        });
+      }
+
+      function resetTypewriter() {
+        typingTimers.forEach(function (t) { clearInterval(t); });
+        typingTimers = [];
+        var descs = document.querySelectorAll('.phase__desc');
+        descs.forEach(function (p) {
+          p.textContent = '';
+          p.classList.remove('is-typing');
+        });
+      }
+
+      if ('IntersectionObserver' in window) {
+        var mapObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              startSimultaneousTypewriter();
+            } else {
+              // Quando a sessão sai da tela (ao subir ou descer), reseta para digitar de novo devagar ao reentrar
+              resetTypewriter();
+            }
+          });
+        }, {
+          threshold: 0.18
+        });
+        mapObserver.observe(mapSection);
+      } else {
+        startSimultaneousTypewriter();
+      }
+    })();
+  </script>
+
+</body>
+</html>
