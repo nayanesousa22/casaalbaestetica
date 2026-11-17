@@ -757,31 +757,31 @@
       background-color: #e5d3c2;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: flex-start;
       align-items: center;
-      padding: 230px 24px 85px;
+      padding: clamp(310px, 42vh, 375px) 24px 60px;
     }
     .problem .fold__content {
-      max-width: 350px;
+      max-width: 330px;
       width: 100%;
       margin: 0 auto;
       padding: 0;
       text-align: left;
     }
     .problem h2 {
-      font-size: clamp(17px, 4.8vw, 22px); /* diminuído 5px */
-      margin-bottom: 14px;
+      font-size: clamp(19px, 5.2vw, 24px); /* aumentado 2px */
+      margin-bottom: 16px;
       text-align: left;
       max-width: 100%;
     }
     .problem p {
-      font-size: 12px; /* diminuído 5px (de 17px para 12px) */
+      font-size: 14px; /* aumentado 2px (de 12px para 14px) */
       line-height: 1.65;
       max-width: 100%;
       text-align: left;
     }
     .problem p + p {
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     /* Dobra 3 Mobile */
@@ -932,8 +932,8 @@
   <section class="fold problem">
     <div class="fold__content">
       <h2 class="reveal">Sessão avulsa resolve o dia.<br>Não resolve o caminho.</h2>
-      <p class="reveal reveal-delay-1">Você já fez um tratamento, gostou, e depois não soube <br class="desktop-br">o que vinha em seguida. Ou começou um pacote longo sem entender o porquê e desistiu no meio. Ou já fez em <br class="desktop-br">outro lugar e saiu sem saber o que esperar.</p>
-      <p class="reveal reveal-delay-2">Não é falta de disciplina. Faltou um plano que explicasse <br class="desktop-br">cada etapa, com clareza, antes de você se comprometer.</p>
+      <p class="reveal reveal-delay-1">Você já fez um tratamento, gostou, <br class="mobile-br">e depois não soube o que vinha em seguida.<br><br>Ou começou um pacote longo <br class="mobile-br">sem entender o porquê e desistiu no meio.<br><br>Ou já fez em outro lugar <br class="mobile-br">e saiu sem saber o que esperar.</p>
+      <p class="reveal reveal-delay-2">Não é falta de disciplina.<br>Faltou um plano que explicasse cada etapa, <br class="mobile-br">com clareza, antes de você se comprometer.</p>
     </div>
   </section>
 
